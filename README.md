@@ -29,14 +29,14 @@ En futuras versiones se ampliará funcionalidad.
 
 ## How to run
 
-El servidor usado es Ubuntu Server 18.04, con apache, php y MySql.
+El servidor usado es Ubuntu Server 18.04, con Apache, PHP y MySql.
 
 + Se deben copiar los ficheros gate.php y panel.php en el directorio /var/www/html.
 + Crear un archivo llamado 'fichero.txt' en el mismo directorio /var/www/html.
 
 Para la extensión.
 
-+ Se debe abrir el fichero LastUrls.js y sustitur la variable codeSvr (en la línea 4) por una cadena que contenga, codificada en Base 64, la URL del servidor al que se envia la información. 
++ Se debe abrir el fichero LastUrls.js y sustitur la variable codeSvr (en la línea 4) por una cadena que contenga, codificada en Base 64, la URL del servidor al que se envia la información, es decir http://IP/gate.php,  http://dominio/gate.php. Es importante que la url contenga el fichero gate.php, ya que esté sera el receptor de la información. 
 + En el navegador de Google Chrome, abrir extensiones (chrome://extensions/) habilitar el modo desarrollador, cargar extensión descomprimida y selecinar la carpeta LastUrl. 
 
 
