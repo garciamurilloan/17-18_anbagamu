@@ -32,6 +32,7 @@ En futuras versiones se ampliará funcionalidad.
 El servidor usado es Ubuntu Server 18.04, con apache, php y MySql.
 
 + Se deben copiar los ficheros gate.php y panel.php en el directorio /var/www/html.
++ Crear un archivo llamado 'fichero.txt' en el mismo directorio /var/www/html.
 
 Para la extensión.
 
