@@ -34,11 +34,11 @@ En el servidor de ataque.
 + El equipo usado es Ubuntu Server 18.04, con Apache, PHP y MySql.
 + Se deben copiar los ficheros `panel.html`, `gate.php`, `tablaUrl.php` y `tabalaKey.php` en el directorio /var/www/html.
 + Crear dos archivos llamados `fichero1.txt` y `fichero2.txt` en el mismo directorio /var/www/html. Se deben dar permisos totales `chmod 777` a estos ficheros, para que se pueda escribir y leer datos desde `gate.php` y `panel.html` respectivamente.
-+ Se debe instalar el panel de administración phpMyAdmin. Seguir el siguiente ![tutorial](phpmyadmin.pdf) para instalación, configuración y creación de la base de datos `LastUrl`. 
++ Se debe instalar el panel de administración phpMyAdmin. Seguir el siguiente [tutorial](phpmyadmin.pdf) para instalación, configuración y creación de la base de datos `LastUrl`. 
 
 En el equipo víctima.
 
-+ Se debe abrir el fichero `/LastUrl/SendModule.js` y sustitur la variable codeSvr (en la línea 3) por una cadena que contenga, codificada en Base 64, la URL del servidor de ataque, al que se envia la información, es decir `http://IP/gate.php`, `http://dominio/gate.php`. Es importante que la url contenga el fichero gate.php, ya que éste sera el receptor de la información. 
++ Se debe abrir el fichero `/LastUrl/SendModule.js` y sustitur la variable codeSvr (en la línea 3) por una cadena que contenga, codificada en Base 64, la URL del servidor de ataque, al que se envia la información, es decir `http://IP/gate.php`, `http://dominio/gate.php`. Esta herramienta puede ayudar con esa tarea [Codificador Base64](https://www.base64encode.org/) . Es importante que la url contenga el fichero gate.php, ya que éste sera el receptor de la información. 
 + En el navegador de Google Chrome, abrir extensiones (chrome://extensions/) habilitar el modo desarrollador, cargar extensión descomprimida y selecinar la carpeta LastUrl. 
 
 
