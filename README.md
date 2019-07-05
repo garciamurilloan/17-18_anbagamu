@@ -61,4 +61,4 @@ Adicionalmente se puede comprobar el contenido de las últimas capturas directam
 ```
 ## Basic Scheme
 
-![Basic Scheme](Scheme2.png)
+![Basic Scheme](Scheme.png)
