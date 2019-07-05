@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang=es>
+<head>
+	<meta charset="utf-8"></meta>
+	<title>Panel Control</title>
+</head>
+
+<body>
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+	<font color="red" size="5px"> La ultima Url visitada es:</font><br/>
+	<section id = "contenedor1" style ='border:solid 2px black; overflow-y:auto; height:120px;'>
+	</section>
+
+	<font color="gren" size="5px"> La ultimas teclas y clicks pulsados son:</font><br/>
+	<section id = "contenedor2" style ='border:solid 2px black; overflow-y:auto; height:120px;'>
+	</section>
+
+	<font color="blue" size="5px"> Datos almacenados:</font><br/>
+	<section style = "padding:3px">
+	<font color ="black" size = "4px"> Consultar los ultimos </font>
+	<input id ="NumeroReg" type ="number"><font color ="black" size = "4px"> registros </font>
+	<input type ="button" value="Aceptar" onclick = "mostrarTablas()">
+	<font color ="black" size = "3px"> (0 para consultar todo el conjunto de datos) </font><br/>
+	<section id = "contenedor3" style ='border:solid 2px black; overflow-y:auto; width:48%;height:10em;float:left'>
+	</section>
+	<section id = "contenedor4" style ='border:solid 2px black; overflow-y:auto; width:49%; height:10em;float:right;'>
+	</section>
+
+<script type="text/javascript">
+
+	function mostrarTablas(){
+
+	  	//comprobamos si hay un numero en el parametro de consulta.
+		var num = (document.getElementById("NumeroReg").value);
+		if (num.length == 0){ // comprobamos si es un numero
+	  		alert("Debe introducir un numero entero, o 0 para todo el conjunto de datos.");
+	  		return;
+	  	}
+
+		//consultamos la tabla  URL
+		var ajaxReq =new XMLHttpRequest();
+	  	ajaxReq.open ("POST", "tablaUrl.php", true);
+	  	ajaxReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	  	ajaxReq.send("NumReg=" + num.toString());
+	  	ajaxReq.onreadystatechange = function (){
+			if (ajaxReq.readyState == 4 && ajaxReq.status == 200){
+			 	document.getElementById("contenedor3").innerHTML = ajaxReq.responseText;
+			}
+	    	}
+
+		//consultamos la tabla  kEY
+		var ajaxReq2 =new XMLHttpRequest();
+		ajaxReq2.open ("POST", "tablaKey.php", true);
+		ajaxReq2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		ajaxReq2.send("NumReg=" + num.toString());
+		ajaxReq2.onreadystatechange = function (){
+			if (ajaxReq2.readyState == 4 && ajaxReq2.status == 200){
+		 		document.getElementById("contenedor4").innerHTML = ajaxReq2.responseText;
+			}
+	    	}
+	}
+
+	function MostrarDatos() {
+		//guardamos en una variable el resultado de la consulta AJAx urls
+		var datos1 = $.ajax({
+			url: 'fichero1.txt',
+			dataType: 'text',
+			async: false
+		}).responseText;
+		//cargamos en el contenedor1 el resultado
+		document.getElementById("contenedor1").innerHTML = datos1;
+		//guardamos en una variable el resultado de la consulta AJAx keys
+		var datos2 = $.ajax({
+			url: 'fichero2.txt',
+			dataType: 'text',
+			async: false
+		}).responseText;
+
+ 		//cargamos en el contenedor2 el resultado
+		document.getElementById("contenedor2").innerHTML = datos2;
+
+	}
+
+	//llamamos a la funcion MostrarDatos cada segundo para actualizar.
+	setInterval(MostrarDatos,1000);
+
+</script>
+
+</body>
+
+</html>
