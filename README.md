@@ -44,13 +44,14 @@ En el equipo víctima.
 
 ## Basic usage
 
-Realizar navegación en Google Chrome desde el equipo víctima (donde se haya instalado la extensión) y comprobar desde otro navegador en la dirección del servidor de ataque `http://IP/panel.html` como se registran los datos (con cada transición y cambio de URL en el navegador de la víctima, deberían mostrarse los datos en `http://IP/panel.html`). Además a traves de la parte inferior de esta página se pueden consultar los datos almacenados.
+Realizar navegación en Google Chrome desde el equipo víctima (donde se haya instalado la extensión) y comprobar desde otro navegador en la dirección del servidor de ataque `http://IP/panel.html` como se registran los datos (con cada transición y cambio de URL en el navegador de la víctima, deberían mostrarse los datos en `http://IP/panel.html`). Además a traves de la parte inferior de esa página se pueden consultar los datos almacenados.
+
 Adicionalmente se puede comprobar el contenido de las últimas capturas directamente en los ficheros `fichero1.txt`, `fichero2.txt`. Y las capturas almacenadas a través de consultas en el panel de phpMyAdmin.
 
 ## Architecture
 
 + `gate.php`: recibe los datos que envía la extensión y guarda las Urls en `fichero1.txt` y en la tabla `Urls` de la base `LastUrl`, y guarda los datos del KeyLogger en `fichero2.txt` y en la tabla `Tecla` de las base `LastUrl`.
-+ `panel.html`: monitoriza la última URL, IP, identidad de la Pestaña (IdTab) y la hora, almacenadas en `fichero1.txt` y las últimas teclas/clicks del (KeyLogger), IP, identidad de la Pestaña (IdTab) y la hora, almacenadas en `fichero2.txt` . Más abajo se pueden realizar consultas a la base de datos, mostrando las últimas x capturas o todo el conjuto de datos de las tablas `Tecla` y `Urls`.
++ `panel.html`: monitoriza la última URL, IP, identidad de la Pestaña (IdTab) y la hora, almacenadas en `fichero1.txt` y las últimas teclas/clicks del KeyLogger, IP, identidad de la Pestaña (IdTab) y la hora, almacenadas en `fichero2.txt` . Más abajo se pueden realizar consultas a la base de datos, mostrando las últimas X capturas o todo el conjuto de datos de las tablas `Tecla` y `Urls`.
 + `tablaKey.php`: Consulta la tabla `Tecla` de la base de datos y muestra los datos solicitados en formato tabla, los parametros de el número de registros los obtiene de `panel.html`.
 ```plain
     | ID | IP | TECLAS|
