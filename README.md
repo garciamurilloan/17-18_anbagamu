@@ -9,7 +9,7 @@
 3. [How to run](#how-to-run)
 4. [Basic usage](#basic-usage)
 4. [Architecture](#architecture)
-
+5. [Basic Scheme](#basic scheme)
 
 ## Project description
 
@@ -31,7 +31,7 @@ En futuras versiones se ampliará funcionalidad.
 
 En el servidor de ataque.
 
-+ El equipo usado es Ubuntu Server 18.04, con Apache, PHP y MySql.
++ El equipo usado es Ubuntu Server 18.04, con Apache2.0, PHP y MySql.
 + Se deben copiar los ficheros `panel.html`, `gate.php`, `tablaUrl.php` y `tabalaKey.php` en el directorio /var/www/html.
 + Crear dos archivos llamados `fichero1.txt` y `fichero2.txt` en el mismo directorio /var/www/html. Se deben dar permisos totales `chmod 777` a estos ficheros, para que se pueda escribir y leer datos desde `gate.php` y `panel.html` respectivamente.
 + Se debe instalar el panel de administración phpMyAdmin. Seguir el siguiente [tutorial](phpmyadmin.pdf) para instalación, configuración y creación de la base de datos `LastUrl`. 
@@ -50,6 +50,8 @@ Adicionalmente se puede comprobar el contenido de las últimas capturas directam
 
 ## Architecture
 
+El servidor de ataque.
+
 + `gate.php`: recibe los datos que envía la extensión y guarda las Urls en `fichero1.txt` y en la tabla `Urls` de la base `LastUrl`, y guarda los datos del KeyLogger en `fichero2.txt` y en la tabla `Tecla` de las base `LastUrl`.
 + `panel.html`: monitoriza la última URL, IP, identidad de la Pestaña (IdTab) y la hora, almacenadas en `fichero1.txt` y las últimas teclas/clicks del KeyLogger, IP, identidad de la Pestaña (IdTab) y la hora, almacenadas en `fichero2.txt` . Más abajo se pueden realizar consultas a la base de datos, mostrando las últimas X capturas o todo el conjuto de datos de las tablas `Tecla` y `Urls`.
 + `tablaKey.php`: Consulta la tabla `Tecla` de la base de datos y muestra los datos solicitados en formato tabla, los parametros de el número de registros los obtiene de `panel.html`.
@@ -60,6 +62,13 @@ Adicionalmente se puede comprobar el contenido de las últimas capturas directam
 ```plain
     | ID | IP | URL|
 ```
+
+La extensión.
+
++ `LastUrls.js`: actua como módulo principal, dispara un evento justo antes de producirse una solicitud web, capturando la URL. Además recibe los datos que el KeyLogger ha dejado en el almacenamiento local. Pasa los datos anteriores al módulo de envío.
++ `KeyLogger.js`: es un script de contenido que se inyecta en todas las páginas, dispara eventos que capturan cada tecla y cada click de ratón y los almacena en storage.local.
++ `SendModule.js`: tiene la función sendData que se encarga de recibir los datos del modulo principal y a través del objeto AJAX  XMLHttpRequest, enviarlos por metodo POST al servidor.
+
 ## Basic Scheme
 
 ![Basic Scheme](Scheme.png)
