@@ -8,8 +8,10 @@
 2. [Features](#features)
 3. [How to run](#how-to-run)
 4. [Basic usage](#basic-usage)
-4. [Architecture](#architecture)
-5. [Basic Scheme](#basic scheme)
+5. [Architecture](#architecture)
+6. [Basic Scheme](#basic-scheme)
+
+
 
 ## Project description
 
