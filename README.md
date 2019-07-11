@@ -75,4 +75,4 @@ La extensión.
 
 ## Basic Scheme
 
-![Basic Scheme](Scheme.png)
+![Basic Scheme](Scheme3.png)
