@@ -48,7 +48,7 @@ En el equipo objetivo.
 
 ## Basic usage
 
-Realizar navegación en Google Chrome desde el equipo objetivo (donde se haya instalado la extensión) y comprobar desde otro navegador en la dirección del servidor de adversario `http://IP/panel.html` como se registran los datos (con cada transición y cambio de URL en el navegador de la objetivo, deberían mostrarse los datos en `http://IP/panel.html`). Además a traves de la parte inferior de esa página se pueden consultar los datos almacenados.
+Realizar navegación en Google Chrome desde el equipo objetivo (donde se haya instalado la extensión) y comprobar desde otro navegador en la dirección del servidor de adversario `http://IP/panel.html` como se registran los datos (con cada transición y cambio de URL en el navegador del objetivo, deberían mostrarse los datos en `http://IP/panel.html`). Además a traves de la parte inferior de esa página se pueden consultar los datos almacenados.
 
 Adicionalmente se puede comprobar el contenido de las últimas capturas directamente en los ficheros `fichero1.txt`, `fichero2.txt`. Y las capturas almacenadas a través de consultas en el panel de phpMyAdmin.
 
