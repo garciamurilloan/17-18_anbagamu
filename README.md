@@ -21,7 +21,7 @@ Está implementado como una extensión del navegador Google Chrome, que intercep
 
 Otra función es la de bloqueo y redirección de sitios web visitados en el navegador. A través de un panel control, alojado en el servidor adversario, se puede monitorizar e interactuar con la extensión.
 
-Este trabajo se realiza en el contexto de de la versión 2 de manifiesto. No se ha tenido en cuenta el borrador de la próxima actualización del manifiesto de Google Chrome para la versión 3 [Manifest V3.](https://docs.google.com/document/d/1nPu6Wy4LWR66EFLeYInl3NzzhHzc-qnk4w4PX-0XMw8/preview#heading=h.xgjl2srtytjt)
+Este trabajo se realiza en el contexto de de la versión 2 de manifiesto. No se ha tenido en cuenta el borrador de la próxima actualización del manifiesto de Google Chrome para la versión 3 [(Manifest V3).](https://docs.google.com/document/d/1nPu6Wy4LWR66EFLeYInl3NzzhHzc-qnk4w4PX-0XMw8/preview#heading=h.xgjl2srtytjt)
 
 ## Disclaimer
 
