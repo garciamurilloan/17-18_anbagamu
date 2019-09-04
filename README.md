@@ -48,7 +48,7 @@ En la tercera versión, se ha incluido funcionalidad en el panel de control para
 
 + Se debe abrir el fichero `/LastUrl/SendModule.js` y sustitur la variable codeSvr (en la línea 10) por una cadena que contenga, codificada en Base 64, la URL del servidor de adversario, al que se envia la información. Es decir `http://IP/gate.php` ó `http://dominio/gate.php`. Es importante que la url contenga el fichero gate.php, ya que éste sera el receptor de la información.
 + Además, en el fichero `/LastUrl/SendModule.js` se debe sustitur la variable codeFs (en la línea 2) y la variable codeFr (en la línea 5) por una cadena que contenga, codificada en Base 64, la URL de los ficheros 3 y 4  respectivamente, del servidor adversario. Es decir `http://IP/fichero3.txt` ó `http://dominio/fichero3.php` y `http://IP/fichero4.txt` ó `http://dominio/fichero4.php`. En estos ficheros se reciben los datos para bloqueo y redirección. 
-Esta herramienta puede ayudar con la tarea de los apartados anteriores[Codificador Base64](https://www.base64encode.org/) . 
+Esta herramienta puede ayudar con la tarea de los apartados anteriores [(Codificador Base64)](https://www.base64encode.org/) . 
 + En el navegador de Google Chrome, abrir extensiones (chrome://extensions/) habilitar el modo desarrollador, cargar extensión descomprimida y selecinar la carpeta LastUrl. 
 
 
@@ -58,7 +58,7 @@ Realizar navegación en Google Chrome desde el equipo objetivo (donde se haya in
 
 Adicionalmente se puede comprobar el contenido de las últimas capturas directamente en los ficheros `fichero1.txt`, `fichero2.txt`. Y las capturas almacenadas a través de consultas en el panel de phpMyAdmin.
 
-Para la funcion de bloqueo se debe rellenar el campo *sitio* con el dominio a bloquear (no es necesario completar un paterm de URL valido, lo creará el servidor, es decir bastaria con meter *youtube.com*, *amazon.es*....) el campo de redireccion se quedará en blanco. Todas las solicitudes realizadas desde el navegador objetivo a esos dominios serán bloqueadas.
+Para la funcion de bloqueo se debe rellenar el campo *sitio* con el dominio a bloquear (no es necesario completar un pattern de URL valido, lo creará el servidor, es decir bastaria con meter *youtube.com*, *amazon.es*....) el campo de redireccion se quedará en blanco. Todas las solicitudes realizadas desde el navegador objetivo a esos dominios serán bloqueadas.
 
 Para la función de redirección además de completar el campo *sitio* de la manera anterior, se dede completar el campo *redirección*. En este caso de debe introducir un URL completa, que debe esta estar alojada en el servidor adversario u otro servidor. Todas las solicitudes realizadas desde el navegador objetivo a esos dominios serán redirecionadas.
 
