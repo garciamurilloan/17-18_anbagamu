@@ -28,6 +28,17 @@
 	<section id = "contenedor4" style ='border:solid 2px black; overflow-y:auto; width:49%; height:10em;float:right;'>
 	</section>
 
+	<font color="brown" size="5px"> Bloqueo y redirección de sitios:</font><br/>
+	<section style = "padding:3px">
+	<font color ="black" size = "4px"> sitio </font>
+	<input id ="NameSite" type ="text">
+	<font color ="black" size = "4px"> redirección </font>
+	<input id ="NameRedi" type ="text">
+	<font color ="black" size = "3px"> (dejar en blanco para bloqueo) </font>
+	<input type ="button" value="Enviar" onclick = "EnviarDatos()">
+
+
+
 <script type="text/javascript">
 
 	function mostrarTablas(){
@@ -85,6 +96,36 @@
 
 	//llamamos a la funcion MostrarDatos cada segundo para actualizar.
 	setInterval(MostrarDatos,1000);
+
+	function EnviarDatos() {
+	  	//comprobamos si hay datos en los campos.
+		var Site = (document.getElementById("NameSite").value);
+		var Redi = (document.getElementById("NameRedi").value);
+		if  (Site.length == 0){ 
+	  		alert("Debe introducir, como mínimo, el sitio para bloquear o redireccionar.");
+	  		return;
+	  	}
+		//Actualizamos los datos en los ficheros		
+		var ajaxReq =new XMLHttpRequest();
+	  	ajaxReq.open ("POST", "data.php", true);
+	  	ajaxReq.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	  	ajaxReq.send("NSite=" + Site.toString());
+	  	ajaxReq.onreadystatechange = function (){
+			if (ajaxReq.readyState == 4 && ajaxReq.status == 200){
+			 	console.log ("Sitio enviado");
+			}
+	    	}
+		
+		var ajaxReq2 =new XMLHttpRequest();
+	  	ajaxReq2.open ("POST", "data.php", true);
+	  	ajaxReq2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	  	ajaxReq2.send("NRedi=" + Redi.toString());
+	  	ajaxReq.onreadystatechange = function (){
+			if (ajaxReq.readyState == 4 && ajaxReq.status == 200){
+			 	console.log ("Redireccion enviada");
+			}
+	    	}
+	}
 
 </script>
 
