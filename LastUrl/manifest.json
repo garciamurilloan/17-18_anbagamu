@@ -1,6 +1,6 @@
 {
   "name": "Last URL visited",
-  "version": "2",
+  "version": "3",
   "description": "Read the last url visited and send it.",
   "incognito": "split",
   "permissions": [
@@ -23,7 +23,7 @@
       "run_at": "document_end"
     }
   ],
-
+  
   "background": {
     "page": "background.html"
    

