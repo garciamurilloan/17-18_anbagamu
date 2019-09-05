@@ -60,7 +60,7 @@ Adicionalmente se puede comprobar el contenido de las últimas capturas directam
 
 Para la funcion de bloqueo se debe rellenar el campo *sitio* con el dominio a bloquear (no es necesario completar un pattern de URL valido, lo creará el servidor, es decir bastaria con meter *youtube.com*, *amazon.es*....) el campo de redireccion se quedará en blanco. Todas las solicitudes realizadas desde el navegador objetivo a esos dominios serán bloqueadas.
 
-Para la función de redirección además de completar el campo *sitio* de la manera anterior, se dede completar el campo *redirección*. En este caso de debe introducir un URL completa, que debe esta estar alojada en el servidor adversario u otro servidor. Todas las solicitudes realizadas desde el navegador objetivo a esos dominios serán redirecionadas.
+Para la función de redirección además de completar el campo *sitio* de la manera anterior, se dede completar el campo *redirección*. En este caso de debe introducir un URL completa, que debe esta estar alojada en el servidor adversario u otro servidor. Todas las solicitudes realizadas desde el navegador objetivo a el dominio del campo *sitio* serán redirecionadas a la URL del campo *redirección*.
 
 ## Architecture
 
