@@ -39,7 +39,7 @@ En la tercera versión, se ha incluido funcionalidad en el panel de control para
 
 **En el servidor adversario.**
 
-+ El equipo usado es Ubuntu Server 18.04, con Apache2.0, PHP y MySql.
++ El equipo usado es Ubuntu Server 18.04, con Apache HTTP, PHP y MySql.
 + Se deben copiar los ficheros `panel.html`, `gate.php`, `tablaUrl.php` , `tabalaKey.php` y `data.php` en el directorio /var/www/html.
 + Crear cuatro archivos llamados `fichero1.txt` , `fichero2.txt` , `fichero3.txt` y `fichero4.txt` en el mismo directorio /var/www/html. Se deben dar permisos totales `chmod 777` a estos ficheros, para que se pueda escribir y leer datos desde `gate.php` , `data.php` y `panel.html` respectivamente.
 + Se debe instalar el panel de administración phpMyAdmin. Seguir el siguiente [(tutorial)](phpmyadmin.pdf) para instalación, configuración y creación de la base de datos `LastUrl`. 
