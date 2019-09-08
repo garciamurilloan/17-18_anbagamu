@@ -96,4 +96,4 @@ Para la función de redirección además de completar el campo *sitio* de la man
 
 **Video Demo**
 
-[![asciicast]()](https://vimeo.com/358526716)
+[![asciicast](video.jpg)](https://vimeo.com/358526716)
