@@ -11,6 +11,7 @@
 5. [Basic usage](#basic-usage)
 6. [Architecture](#architecture)
 7. [Basic Scheme](#basic-scheme)
+8. [Documentation](#documentation)
 
 
 ## Project description
